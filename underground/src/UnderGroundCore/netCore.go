@@ -29,8 +29,19 @@ type Request struct {
 	method string
 }
 
+type Response struct {
+	address string
+	method string
+	errors []error
+	body string
+}
+
 func NewRequest(addr string, meth string) Request {
 	return Request{addr, meth}
+}
+
+func NewResponse (addr string, meth string, errors []error, body string) Response {
+	return Response{addr, meth, errors, body}
 }
 
 func (req *Request) GetAddr() string {
@@ -49,12 +60,14 @@ func (req *Request) SetMethod(meth string) {
 	req.method = meth
 }
 
-func (req *Request) Exec() (string, error) {
+func (req *Request) Exec() Response {
 	var response string
 	resp, err := http.Get(req.address)
 
 	if err != nil {
 		fmt.Println(err.Error())
+
+		return NewResponse(req.GetAddr(), req.GetMethod(), [err], "")
 	} else {
 		resp.Body.Close()
 
@@ -62,9 +75,11 @@ func (req *Request) Exec() (string, error) {
 
 		if err != nil {
 			fmt.Println(err.Error())
+
+			return NewResponse(req.GetAddr(), req.GetMethod(), [err], "")
 		} else {
 			response = string(bytes)
 		}
 	}
-	return response, err
+	return NewResponse(req.GetAddr(), req.GetMethod(), [err], response)
 }
