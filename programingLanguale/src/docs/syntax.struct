@@ -1,0 +1,57 @@
+###   ###                                    ######  
+###   ###                                   #########
+###   ###  $$      #####   %%%%%%  ####     ##     ##  ****     ####   @@  @@  ##      &&&&& 
+###   ###  $$$$$   ######  %%%%%%  ######   ##         ******  ######  @@  @@  #####   &&&&&&
+###   ###  $$$$$$  ##  ##  %%      ##  ##   ##         **  **  ##  ##  @@  @@  ######  &&  &&
+###   ###  $$  $$  ##  ##  %%%%%%  ######   ##  #####  ******  ##  ##  @@  @@  ##  ##  &&  &&
+###   ###  $$  $$  ##  ##  %%      ####     ##     ##  ****    ##  ##  @@  @@  ##  ##  &&  &&
+ #######   $$  $$  ######  %%%%%%  ## ##    #########  ** **   ######  @@@@@@  ##  ##  &&&&&&
+  #####    $$  $$  #####   %%%%%%  ##  ##    ######    **  **   ####    @@@@   ##  ##  &&&&& 
+
+by PriestRussian
+VK: https://vk.com/priestrussian
+GMAIL: priestrussian@gmail.com
+
+05.04.2018
+
+
+{Общий вид программы}
+<file type>
+
+<import table>
+
+<export table>
+
+<program body>
+
+{Тип файла}
+
+file type: code file / header file
+
+{Таблица импорта}
+
+import {
+	"header file name"
+	<path/headerFileName>
+}
+
+{Таблица экспорта}
+
+export {
+	name -> global name
+	namespace -> global namespace
+}
+
+{Тело программы}
+	{Управляющие конструкции}
+		{Объявление переменной}
+			var variableName type
+			var variableName type = value
+			variableName type
+			variableName type = value
+			valiableName := value
+
+	{Объявление функций}
+		func / function functionName(params...) returned type {
+			function body
+		}
