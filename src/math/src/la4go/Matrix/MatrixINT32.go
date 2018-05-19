@@ -2,31 +2,31 @@ package Matrix
 
 import "errors"
 
-type matrixINT struct {
+type matrixINT32 struct {
 	m      int
 	n      int
-	matrix [][]int
+	matrix [][]int32
 }
 
-func MatrixI(m int, n int) matrixINT {
-	matrix := make([][]int, m, n)
+func MatrixI32(m int, n int) matrixINT32 {
+	matrix := make([][]int32, m, n)
 
 	for i := 0; i < m; i++ {
-		matrix[i] = make([]int, n)
+		matrix[i] = make([]int32, n)
 	}
 
-	return matrixINT{m, n, matrix}
+	return matrixINT32{m, n, matrix}
 }
 
-func (this matrixINT) GetM() int {
+func (this matrixINT32) GetM() int {
 	return this.m
 }
 
-func (this matrixINT) GetN() int {
+func (this matrixINT32) GetN() int {
 	return this.n
 }
 
-func (this matrixINT) GetElement(m int, n int) (interface{}, error) {
+func (this matrixINT32) GetElement(m int, n int) (interface{}, error) {
 	if m <= this.m && n <= this.n {
 		return this.matrix[m][n], nil
 	}
@@ -34,9 +34,9 @@ func (this matrixINT) GetElement(m int, n int) (interface{}, error) {
 	return 0, errors.New("Index out of range")
 }
 
-func (this matrixINT) SetElement(m int, n int, value interface{}) error {
+func (this matrixINT32) SetElement(m int, n int, value interface{}) error {
 	if m <= this.m && n <= this.n {
-		val, ok := value.(int)
+		val, ok := value.(int32)
 		if ok {
 			this.matrix[m][n] = val
 			return nil

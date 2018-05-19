@@ -1,19 +1,15 @@
 package main
 
 import (
-	"math/src/la4go/Matrix"
 	"fmt"
+	"math/src/la4go/Matrix"
 )
 
 func main() {
-	m:=Matrix.MatrixI(10,10)
+	m1 := Matrix.MatrixI64(10, 10)
+	m2 := Matrix.MatrixI64(10, 10)
+	//m2.SetElement(5,5,int64(10))
+	e := Matrix.Equal(m1, m2)
 
-	m.SetElement(8,8,19)
-	e,err:=m.GetElement(80,8)
-
-	if err!=nil{
-		fmt.Println(err.Error())
-	} else {
-		fmt.Println(e)
-	}
+	fmt.Println(e)
 }
