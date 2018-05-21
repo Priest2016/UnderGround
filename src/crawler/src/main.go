@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	p:=web.Page("http://zernon.ru")
+	p := web.Page("http://zernon.ru")
 	fmt.Println(p.GetSource())
 }
